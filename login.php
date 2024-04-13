@@ -1,13 +1,4 @@
 <?php
-session_start();
-if(isset($_SESSION['uid']))
-{
-    header("location:userr.php");
-}
-
-
-
-
 if(isset($_POST["loginbtn"]))
 {
    
@@ -30,10 +21,7 @@ $row= mysqli_num_rows($result);
 
 if($row>0)
 {
-    $data = mysqli_fetch_assoc($result);
-    session_start();
-    $_SESSION ["uid"] = $data["id"];
-    header("location:userr.php");
+    header("location:user.php");
 }
 else
 {
@@ -42,8 +30,6 @@ else
 }
 ?> 
 
-
-
 <html>
     <head>
         <title>Login Page</title>
@@ -51,7 +37,7 @@ else
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <style>
         body {
-            background-image: url(images/A1.jpg); 
+            background-image: url(image/A1.jpg); 
             background-size: cover;
             background-attachment: fixed;
         }
@@ -97,7 +83,6 @@ else
                             <div class="form-group">
                                 <button class ="btn btn-success" type="submit" name="loginbtn"> Login </button>
                             </div>
-                            <p> Don't have an account? <a href ="register.php" >sing Up  </a> </p>
                         </form>
                     </div>
                 </div>
